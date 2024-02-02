@@ -119,7 +119,9 @@ public class StatisticsManager {
             } catch (StorageException e) {
                 LOGGER.warn("Error saving statistics", e);
             }
-
+            
+            return; //Prevent posting dev statistics
+            
             String url = config.getString(Keys.SERVER_STATISTICS);
             if (url != null) {
                 String time = DateUtil.formatDate(statistics.getCaptureTime());
